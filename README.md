@@ -1,2 +1,2 @@
-# Praise
+### Praise
 React Nativeを使ったアプリケーション
