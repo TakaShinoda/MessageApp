@@ -38,7 +38,7 @@ export default class App extends Component<Props> {
     super(props);
     this.onAddItem = this.onAddItem.bind(this);
     this.state = {
-      list: [], //賞賛リストを空に
+      list: [], //メッセージリストを空に
       currentIndex: 0,
       time: "",
       text: "",
@@ -162,105 +162,101 @@ pointFunction = () => {
 
 
 
-    componentDidMount() {
-      this.loadPost()
-      this.loadButa()
-      this.loadPanda()
-      this.loadInu()
-    }
+componentDidMount() {
+  this.loadPost()
+  this.loadButa()
+  this.loadPanda()
+  this.loadInu()
+}
 
 
 //ユーザ情報保存
-  //ぶた
-  saveButa = async (buta) => {
-    try{
-        await AsyncStorage.setItem('buta',JSON.stringify(buta));
-       }catch(error){
-         console.log(error);
+//ぶた
+saveButa = async (buta) => {
+try{
+    await AsyncStorage.setItem('buta',JSON.stringify(buta));
+   }catch(error){
+     console.log(error);
+   }
        }
+
+loadButa = async () => {
+try{
+  const butaString = await AsyncStorage.getItem('buta');
+  if(butaString){
+    const buta = JSON.parse(butaString)
+            this.setState({buta: buta})
+             }
+             }catch(error){
+               console.log(error);
+             }
            }
 
-  loadButa = async () => {
-    try{
-      const butaString = await AsyncStorage.getItem('buta');
-      if(butaString){
-        const buta = JSON.parse(butaString)
-                this.setState({buta: buta})
-                 }
-                 }catch(error){
-                   console.log(error);
-                 }
-               }
-
-  //ぱんだ
-  savePanda = async (panda) => {
-    try{
-        await AsyncStorage.setItem('panda',JSON.stringify(panda));
-       }catch(error){
-         console.log(error);
+//ぱんだ
+savePanda = async (panda) => {
+try{
+    await AsyncStorage.setItem('panda',JSON.stringify(panda));
+   }catch(error){
+     console.log(error);
+   }
        }
+
+loadPanda = async () => {
+try{
+  const pandaString = await AsyncStorage.getItem('panda');
+  if(pandaString){
+    const panda = JSON.parse(pandaString)
+            this.setState({panda: panda})
+             }
+             }catch(error){
+               console.log(error);
+             }
            }
 
-  loadPanda = async () => {
-    try{
-      const pandaString = await AsyncStorage.getItem('panda');
-      if(pandaString){
-        const panda = JSON.parse(pandaString)
-                this.setState({panda: panda})
-                 }
-                 }catch(error){
-                   console.log(error);
-                 }
-               }
-
-  //いぬ
-  saveInu = async (inu) => {
-    try{
-        await AsyncStorage.setItem('inu',JSON.stringify(inu));
-       }catch(error){
-         console.log(error);
+//いぬ
+saveInu = async (inu) => {
+try{
+    await AsyncStorage.setItem('inu',JSON.stringify(inu));
+   }catch(error){
+     console.log(error);
+   }
        }
-           }
 
-  loadInu = async () => {
-    try{
-      const inuString = await AsyncStorage.getItem('inu');
-      if(inuString){
-        const inu = JSON.parse(inuString)
-                this.setState({inu: inu})
-                 }
-                 }catch(error){
-                   console.log(error);
-                 }
-               }
+loadInu = async () => {
+try{
+  const inuString = await AsyncStorage.getItem('inu');
+  if(inuString){
+    const inu = JSON.parse(inuString)
+            this.setState({inu: inu})
+             }
+             }catch(error){
+               console.log(error);
+             }
+           }
 
 
 //投稿内容保存
 savePost = async (list) => {
-  try{
-      await AsyncStorage.setItem('list',JSON.stringify(list));
-     }catch(error){
-      console.log(error);
-      }
-      // Alert.alert(JSON.stringify(list) + ': stored');
-           }
+try{
+  await AsyncStorage.setItem('list',JSON.stringify(list));
+ }catch(error){
+  console.log(error);
+  }
+  // Alert.alert(JSON.stringify(list) + ': stored');
+       }
 
 loadPost = async () => {
-  try{
-      const listString = await AsyncStorage.getItem('list');
-      if(listString){
-        const list = JSON.parse(listString)
-        const currentIndex = list.length
-        this.setState({list: list, currentIndex: currentIndex})
-      }
-      }catch(error){
-        console.log(error);
-      }
-    }
-
-
-
-
+try{
+  const listString = await AsyncStorage.getItem('list');
+  if(listString){
+    const list = JSON.parse(listString)
+    const currentIndex = list.length
+    this.setState({list: list, currentIndex: currentIndex})
+  }
+  }catch(error){
+    console.log(error);
+  }
+}
 
 
   render() {
@@ -326,7 +322,7 @@ loadPost = async () => {
 
 
       <View style={[styles.box4]}>
-        <Text style={styles.text}>あなたの仲間の行動を紹介しよう!</Text>
+        <Text style={styles.text}>あなたの仲間にメッセージを送ろう!</Text>
 
 
 
@@ -380,7 +376,7 @@ loadPost = async () => {
 
         <View style={[styles.inputText2]}>
         <TextInput
-          placeholder="紹介メッセージ入力"
+          placeholder="メッセージ入力"
           onChangeText={(text) => this.setState({text: text})}
           value={this.state.text}
           multiline　blurOnSubmit={false}
@@ -395,7 +391,7 @@ loadPost = async () => {
         <View style={[styles.button]}>
           <Button
           onPress = {this.onAddItem}
-          title="紹介する"
+          title="送信"
           />
 
         </View>
