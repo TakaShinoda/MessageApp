@@ -1,2 +1,1 @@
-## Praise
-React Nativeを使ったアプリケーション
+React Nativeを使ったメッセージアプリケーション
