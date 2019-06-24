@@ -26,8 +26,7 @@ import {
 
 import ReactNativeTooltipMenu from 'react-native-tooltip-menu';
 import Icon from 'react-native-vector-icons/FontAwesome';
-//import BlurView from 'react-native-blur';
-//import Icon from 'react-native-elements';
+
 //高さを判定して値を設定
 //const STATUSBAR_HEIGHT = Platform.OS == 'ios' ? 20 : StatusBar.currentHeight;
 
@@ -161,7 +160,6 @@ pointFunction = () => {
 }
 
 
-
 componentDidMount() {
   this.loadPost()
   this.loadButa()
@@ -285,7 +283,6 @@ try{
                         this.setState({userimg: this.state.buta.img});
                         this.setState({counterItem1: this.state.buta.point1});
                         this.setState({counterItem2: this.state.buta.point2});
-                        //this.setState({counterItem4: this.state.buta.point2})
                        },
       },
       {
@@ -295,7 +292,6 @@ try{
                         this.setState({userimg: this.state.panda.img});
                         this.setState({counterItem1: this.state.panda.point1});
                         this.setState({counterItem2: this.state.panda.point2});
-                        //this.setState({counterItem4: this.state.panda.point2})
                        },
       },
       {
@@ -305,10 +301,8 @@ try{
                         this.setState({userimg: this.state.inu.img});
                         this.setState({counterItem1: this.state.inu.point1});
                         this.setState({counterItem2: this.state.inu.point2});
-                        //this.setState({counterItem4: this.state.inu.point2})
                        },
       },
-
       ]}
 
     />
@@ -318,20 +312,11 @@ try{
 
       </View>
 
-
-
-
       <View style={[styles.box4]}>
         <Text style={styles.text}>あなたの仲間にメッセージを送ろう!</Text>
-
-
-
-
       </View>
 
-
       <View style={[styles.base1, styles.box5]}>
-
 
 <ReactNativeTooltipMenu
         buttonComponent={
@@ -372,8 +357,6 @@ try{
       ]}
 />
 
-
-
         <View style={[styles.inputText2]}>
         <TextInput
           placeholder="メッセージ入力"
@@ -399,9 +382,6 @@ try{
      </View>
 
 
-
-
-
       <ScrollView style={[styles.box3]}>
           <FlatList
           data={this.state.list}
@@ -412,10 +392,6 @@ try{
 
            keyExtractor={(item, index) => "list_" + item.index}
            />
-
-
-
-
 
 
 
@@ -470,13 +446,7 @@ try{
                 </View>
 
 
-
-
-
-
-
       </ScrollView>
-
 
       </View>
     );
@@ -493,23 +463,6 @@ const styles = StyleSheet.create({
     //paddingTopにステータスバーの高さを指定して下にずらす
    //paddingTop: STATUSBAR_HEIGHT,
   },
-
-//  buttonContainer: {
-    //  height: 50,
-  //    width: 90,
-//      flex: 0.4,
-//      padding: 3,
-  //    backgroundColor: '#b7ffdb',
-  //    margin: 1
-  //  },
-
-//  container2: {
-    // height: 30,
-    // justifyContent: "center",
-    // margin :1,
-  //  backgroundColor: '#b7ffdb',
-//   },
-
 
   text: {
     fontSize: 16,
@@ -559,24 +512,19 @@ const styles = StyleSheet.create({
   },
 
 
-
   box1: {
     height:155,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    //flex: 1,
     backgroundColor: '#e5fff2'
   },
   box2: {
     height: 50,
-    //flex: 2,
     backgroundColor: '#87ceeb',
   },
   box3: {
     height: 500,
-    //flex: 4,
-    //height: 80,
     backgroundColor: '#cce5ff',
   },
 
@@ -586,7 +534,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'flex-start',
-    //flex: 1,
     backgroundColor: '#ffffb2'
   },
 
@@ -594,9 +541,7 @@ const styles = StyleSheet.create({
     height:110,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    //alignItems: 'center',
     alignItems: 'flex-end',
-    //flex: 1,
     backgroundColor: '#eaffd6'
   },
 
@@ -611,10 +556,8 @@ const styles = StyleSheet.create({
     height: 65,
     width: 280,
     backgroundColor: '#c1c1ff',
-    //alignItems: 'flex-end',
-   //flexDirection: 'colimn',
   },
 
 });
 
-AppRegistry.registerComponent('Praise', () => App);
+AppRegistry.registerComponent('MassegeApp', () => App);
